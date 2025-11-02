@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Home | [Your Name] — Cyber Portfolio</title>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="Portfo" />
+</head>
+<body>
+  <!-- canvas for matrix/code rain -->
+  <canvas id="matrix"></canvas>
+
+  <header class="topbar">
+    <div class="brand">⟨J.M.Nihindu Thenuka⟩</div>
+    <nav class="nav">
+      <a href="Home.html" class="active">Home</a>
+      <a href="About.html">About</a>
+      <a href="Projects.html">Projects</a>
+      <a href="Contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <div class="photo-container">
+    <img src="c:\Users\HP\Desktop\New folder (4)\cv\481811655_640188485270396_6509231820957209860_n.jpg" alt="My Photo" class="hacker-photo">
+    <div class="glitch-overlay"></div>
+</div>
+
+
+  <main class="terminal">
+    <div class="terminal-window">
+      <div class="prompt-line">
+        <span class="green">guest@cyber:</span><span class="path">~</span><span class="caret"> NTJ</span>
+      </div>
+
+      <h1 class="glitch" data-text="HELLO.">HELLO.</h1>
+      <p class="lead">I am <span class="name">[J.M.Nihindu Thenuka]</span> — Web Designer & Digital Marketer.</p>
+
+      <div class="actions">
+        <a class="btn" href="projects.html">view projects</a>
+        <a class="btn ghost" href="about.html">about me</a>
+      </div>
+
+      <div class="fake-terminal">
+        <pre id="type-area">Initializing portfolio modules...
+> Loaded: HTML, CSS, JavaScript
+> Status: This portfolio website was built to introduce myself to interviewers and showcase my creativity, technical skills, and dedication to web development and digital marketing</pre>
+      </div>
+    </div>
+  </main>
+  <main class="page terminal">
+    <div class="terminal-window">
+      <h2 class="glitch small" data-text="ABOUT">ABOUT</h2>
+      <p>Hi, <strong class="name">[I’m Nihindu Thenuka Jayalath]</strong>.  — a passionate digital creator and web designer who loves bringing ideas to life through clean design, smart code, and creative strategy. I blend technology and imagination to build meaningful digital experiences that connect people and brands.<br>
+        My journey began with a strong foundation in English and Information Technology, earning diplomas from IMBS Green Campus (2019–2020). Today, I’m continuing to expand my knowledge as a Software Engineering student at Saegis Campus (2024–2025) — learning how to turn complex problems into simple, elegant solutions.</p><br>
+      <br>
+
+      <ul class="meta-list">
+        <li><strong>Location:</strong> Sri Lanka - Nugegoda..</li><br>
+        <br>
+        <li><strong>Skills:</strong> My creative toolkit includes HTML, CSS, Figma, wireframing, and web design, but my biggest strengths are curiosity, critical thinking, and leadership. I believe every project is a chance to innovate, learn, and make something unforgettable.</li><br>
+        <br>
+        <li><strong>Tools:</strong> VSCode, Git, Chrome DevTools, Figma</li>
+      </ul>
+
+      <h3 class="sub">Experience</h3>
+      <p>Over the past few years, I’ve worked as a Digital Marketing Executive at Serene Gem Gallery (2023–2024) and as an Online Marketing Executive at Evolution International (2024–2025). These experiences taught me how design, coding, and marketing come together to shape powerful digital identities.</p><br><br>
+
+      <p>I’m always excited to explore new challenges, collaborate with inspiring people, and continue growing as a designer and developer who makes a difference.</p><br><br>
+    </div>
+  </main>
+  <main class="page terminal">
+    <div class="terminal-window">
+      <h2 class="glitch small" data-text="PROJECTS">PROJECTS</h2>
+
+      <div class="project-grid">
+        <article class="project-card">
+          <h4>Portfolio Website</h4>
+          <p>Personal portfolio site — responsive, SEO-friendly, lightweight.</p>
+          <a class="link" href="#" target="_blank">Live / Repo</a>
+        </article>
+
+        <article class="project-card">
+          <h4>Marketing Campaign</h4>
+          <p>Social media campaign that improved engagement & lead gen.</p>
+          <a class="link" href="#">Case study</a>
+        </article>
+
+        <article class="project-card">
+          <h4>Frame works.</h4>
+          <p>Product launch landing page with A/B tested CTAs.</p>
+          <a class="link" href="#">View</a>
+        </article>
+      </div>
+    </div>
+  </main>
+  <main class="page terminal">
+    <div class="terminal-window">
+      <h2 class="glitch small" data-text="CONTACT">CONTACT</h2>
+
+      <form class="contact-form" onsubmit="fakeSubmit(event)">
+        <label>
+          NAME
+          <input type="text" name="name" placeholder="Your name" required>
+        </label>
+
+        <label>
+          EMAIL
+          <input type="email" name="email" placeholder="you@example.com" required>
+        </label>
+
+        <label>
+          MESSAGE
+          <textarea name="message" rows="5" placeholder="Write a short message" required></textarea>
+        </label>
+
+        <button class="btn" type="submit">send</button>
+      </form>
+
+      <p class="note">Or reach out on LinkedIn — links in footer.</p>
+    </div>
+  </main>
+
+
+  <footer class="footer">
+    <div class="social">
+      <a href="https://facebook.com/yourprofile" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://instagram.com/yourprofile" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://linkedin.com/in/yourprofile" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+    <div class="copyright">© 2025 [Nihindu Thenuka] — All rights reserved</div>
+  </footer>
+
+  <script src="Portfolio.Js"></script>
+</body>
+</html>

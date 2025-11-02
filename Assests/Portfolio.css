@@ -1,0 +1,223 @@
+/* Reset + base */
+* { box-sizing: border-box; margin:0; padding:0; }
+html,body { height:100%; }
+body{
+  font-family: "Share Tech Mono", monospace;
+  background: #000;
+  color: #b7ffb7; /* light green terminal */
+  overflow-x: hidden;
+}
+
+/* Matrix canvas sits behind content */
+canvas#matrix {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  display: block;
+}
+
+/* Top bar */
+.topbar{
+  position: fixed;
+  top:0; left:0; right:0;
+  z-index: 10;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 28px;
+  background: rgba(0,0,0,0.55);
+  border-bottom: 1px solid rgba(0,255,0,0.06);
+  backdrop-filter: blur(4px);
+}
+.brand{
+  color:#39ff14; font-weight:700; letter-spacing:1px;
+  font-family: "Orbitron", sans-serif;
+}
+.nav a{
+  color:#b7ffb7; text-decoration:none; margin-left:18px; font-size:0.95rem;
+  opacity:0.9;
+}
+.nav a.active{ color:#39ff14; text-decoration:underline; }
+
+/* Main terminal block */
+.terminal{
+  min-height:100vh;
+  display:flex; align-items:center; justify-content:center;
+  padding:120px 20px 80px;
+  z-index:5; position:relative;
+}
+.terminal-window{
+  width:min(980px,95%);
+  background: rgba(0,0,0,0.55);
+  border: 1px solid rgba(57,255,20,0.06);
+  padding:28px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.6);
+  backdrop-filter: blur(6px);
+  border-radius:8px;
+}
+
+/* Glitch heading */
+.glitch{
+  font-family: "Orbitron", sans-serif;
+  font-size:3rem;
+  color:#39ff14;
+  position:relative;
+  letter-spacing:6px;
+  margin-bottom:8px;
+  text-transform:uppercase;
+}
+.glitch::after, .glitch::before{
+  content: attr(data-text);
+  position:absolute; left:0; top:0; width:100%;
+  overflow:hidden; clip:rect(0,900px,0,0);
+}
+.glitch::before{
+  animation: glitchTop 2s infinite linear;
+  color:#8cff8c; z-index:2; opacity:0.85;
+}
+.glitch::after{
+  animation: glitchBot 2.2s infinite linear;
+  color:#00e600; z-index:1; opacity:0.6;
+}
+/* Photo container */
+.photo-container {
+    position: relative;
+    width: 180px;      /* adjust size */
+    height: 180px;
+    margin: 20px auto;
+    border-radius: 50%; /* circular photo */
+    overflow: hidden;
+    border: 2px solid #39ff14; /* neon green border */
+    box-shadow: 0 0 15px #39ff14;
+  }
+  
+  /* Actual photo */
+  .photo-container img.hacker-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    animation: flicker 3s infinite;
+    filter: brightness(1.1) contrast(1.2);
+  }
+  
+  /* Glitch overlay */
+  .photo-container .glitch-overlay {
+    content: '';
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: 5s;
+    background: repeating-linear-gradient(
+      rgba(57,255,20,0.08) 0 2px,
+      transparent 2px 4px
+    );
+    pointer-events: none;
+    animation: glitchMove 0.5s infinite linear;
+  }
+  
+  /* Flicker animation */
+  @keyframes flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+      opacity: 1;
+      transform: scale(1);
+      filter: brightness(1.1) contrast(1.2);
+    }
+    20%, 24%, 55% {
+      opacity: 0.6;
+      transform: scale(1.02) rotate(-1deg);
+      filter: brightness(1.4) contrast(1.5);
+    }
+  }
+  
+  /* Glitch overlay animation */
+  @keyframes glitchMove {
+    0% { transform: translate(0,0); }
+    25% { transform: translate(-2px,2px); }
+    50% { transform: translate(1px,-1px); }
+    75% { transform: translate(-1px,1px); }
+    100% { transform: translate(0,0); }
+  }
+  
+@keyframes glitchTop{
+  0%{clip:rect(0,900px,0,0); transform:translate(0,0);}
+  10%{clip:rect(0,900px,40px,0); transform:translate(-6px,-3px);}
+  20%{clip:rect(10px,900px,50px,0); transform:translate(5px,2px);}
+  30%{clip:rect(0,900px,0,0); transform:translate(0,0);}
+}
+@keyframes glitchBot{
+  0%{clip:rect(0,900px,0,0); transform:translate(0,0);}
+  10%{clip:rect(40px,900px,80px,0); transform:translate(6px,3px);}
+  20%{clip:rect(20px,900px,60px,0); transform:translate(-3px,-2px);}
+  30%{clip:rect(0,900px,0,0); transform:translate(0,0);}
+}
+
+/* Lead and name */
+.lead{ font-size:1.05rem; color:#c9ffd1; margin-bottom:12px; }
+.name{ color:#7cff7c; font-weight:700; }
+
+/* Buttons */
+.actions{ margin:14px 0 18px; display:flex; gap:12px; flex-wrap:wrap; }
+.btn{
+  padding:10px 16px;
+  border-radius:6px;
+  background:linear-gradient(180deg,#073  #066);
+  color:#b7ffb7(217, 217, 226);
+  text-decoration:none;
+  font-weight:700;
+  border:1px solid rgba(0,0,0,0.3);
+  box-shadow: 0 4px 12px rgba(0,255,0,0.06);
+}
+.btn.ghost{
+  background:transparent; color:#b7ffb7; border:1px solid rgba(57,255,20,0.12);
+}
+
+/* fake terminal log */
+.fake-terminal{
+  margin-top:16px;
+  background:rgba(0,0,0,0.45);
+  border:1px solid rgba(57,255,20,0.04);
+  padding:12px;
+  border-radius:6px;
+}
+.fake-terminal pre{
+  color:#9ef29e;
+  font-size:0.9rem;
+  white-space:pre-wrap;
+  line-height:1.45;
+}
+
+/* Pages layout */
+.page .terminal-window{ padding:28px 22px; }
+.small{ font-size:1.6rem; margin-bottom:12px; }
+
+/* project grid */
+.project-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; margin-top:12px; }
+.project-card{
+  background:rgba(0,0,0,0.4); padding:12px; border-radius:6px;
+  border:1px solid rgba(57,255,20,0.04);
+}
+.project-card h4{ margin-bottom:6px; color:#caffc4; }
+
+/* contact form */
+.contact-form{ display:grid; gap:12px; max-width:640px; margin-top:10px; }
+.contact-form label{ display:flex; flex-direction:column; font-size:0.8rem; color:#cfeece; }
+.contact-form input, .contact-form textarea{
+  margin-top:6px; padding:10px; border-radius:6px; background:#010101; border:1px solid rgba(57,255,20,0.04);
+  color:#dfffe0; font-family:inherit;
+}
+.contact-form button{ width:120px; }
+
+/* footer */
+.footer{ position:relative; z-index:10; margin-top:30px; text-align:center; padding:20px 10px; color:#9ef29e; font-size:0.9rem; }
+.social a{ color:#b7ffb7; margin:0 8px; font-size:1.15rem; text-decoration:none; }
+.social a:hover{ color:#39ff14; transform:translateY(-3px); }
+
+/* responsive */
+@media (max-width:640px){
+  .glitch{ font-size:2rem; letter-spacing:3px; }
+  .topbar{ padding:10px 14px; }
+  .nav a{ margin-left:10px; font-size:0.85rem; }
+}
